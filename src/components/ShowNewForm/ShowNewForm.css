@@ -1,0 +1,19 @@
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+input {
+  height: 1.5rem;
+}
+
+.ShowNewForm__input {
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 5px;
+}
+
+.ShowNewForm__required::after {
+  content: " *";
+  color: red;
+}
