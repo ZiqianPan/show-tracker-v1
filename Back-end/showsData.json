@@ -1,0 +1,37 @@
+{
+  "shows": [
+    {
+      "name": "The Iceblade Sorcerer Shall Rule the World",
+      "alternativeNames": "",
+      "url": "https://www.youtube.com/watch?v=gavrsliKUIs",
+      "season": "",
+      "episode": "",
+      "volume": "",
+      "description": "random descriptions...",
+      "timeStamp": "9:08",
+      "updateWeekday": ""
+    },
+    {
+      "name": "Ori of the Dragon Chain",
+      "alternativeNames": "",
+      "url": "",
+      "season": "",
+      "episode": "",
+      "volume": "",
+      "description": "random descriptions...2",
+      "timeStamp": "1:53:57",
+      "updateWeekday": ""
+    },
+    {
+      "name": "The one and only sword",
+      "alternativeNames": "",
+      "url": "",
+      "season": "",
+      "episode": "73",
+      "volume": "",
+      "description": "random descriptions...3",
+      "timeStamp": "",
+      "updateWeekday": "Thursday"
+    }
+  ]
+}
