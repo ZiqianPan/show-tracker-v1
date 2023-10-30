@@ -1,5 +1,5 @@
 import React from "react";
-import ShowDetails from "../components/ShowDetails";
+import ShowDetails from "../components/ShowDetails/ShowDetails";
 
 export default function Show() {
   return (
