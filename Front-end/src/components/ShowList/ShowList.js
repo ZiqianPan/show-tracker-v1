@@ -21,7 +21,8 @@ export default function ShowList() {
         .get(`${API_URL}/shows`)
         .then((response) => {
           const {data} = response;
-          setShowsData(data.shows)
+          // console.log(data.data)
+          setShowsData(data.data) // MIGHT NEED TO CHANGE THIS ...
           // setLoading(false);
         })
         .then(console.log(showsData))
@@ -41,7 +42,7 @@ export default function ShowList() {
 
   return (
 
-    <div className="Shows">
+    <div className="ShowList">
       <h1>Shows</h1>
 
       {showsData.map((show) => {

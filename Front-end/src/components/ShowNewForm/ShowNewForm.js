@@ -1,14 +1,14 @@
-import { useState, React } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ShowNewForm.css";
 
-const API = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function ShowNewForm() {
   const navigate = useNavigate();
   const [show, setShow] = useState({
-    name: "",
+    title: "",
     alternativeNames: "",
     url: "",
     season: "",
@@ -23,11 +23,11 @@ export default function ShowNewForm() {
     setShow({ ...show, [event.target.id]: event.target.value });
   };
 
+  
   const addShow = (newShow) => {
-    axios
-      .post(`${API}/shows`, newShow)
-      .then(
-        () => {
+    axios.post(`${API_URL}/shows`, newShow)
+      .then((response) => {
+          console.log(response);
           navigate(`/shows`);
         },
         (error) => console.error(error)
@@ -37,26 +37,27 @@ export default function ShowNewForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(`handlesumbit run from showNewForm`,  show)
     addShow(show);
   };
 
   return (
     <div className="ShowNewForm">
       <form onSubmit={handleSubmit}>
-        <label className="ShowNewForm__label ShowNewForm__required" for="name">
-          Name:
+        <label className="ShowNewForm__label ShowNewForm__required" htmlFor="name">
+        title:
         </label>
         <input
-          id="name"
+          id="title"
           type="text"
-          placeholder="Show Name *"
-          value={show.name}
+          placeholder="Show title *"
+          value={show.title}
           onChange={handleTextChange}
           required
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="alternativeNames">
+        <label className="ShowNewForm__label" htmlFor="alternativeNames">
           Alternative Names:
         </label>
         <input
@@ -68,7 +69,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="url">
+        <label className="ShowNewForm__label" htmlFor="url">
           Link to the show:
         </label>
         <input
@@ -80,7 +81,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="season">
+        <label className="ShowNewForm__label" htmlFor="season">
           Season:
         </label>
         <input
@@ -92,7 +93,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="episode">
+        <label className="ShowNewForm__label" htmlFor="episode">
           Episode:
         </label>
         <input
@@ -104,7 +105,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="volume">
+        <label className="ShowNewForm__label" htmlFor="volume">
           Volume:
         </label>
         <input
@@ -116,7 +117,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="timeStamp">
+        <label className="ShowNewForm__label" htmlFor="timeStamp">
           TimeStamp:
         </label>
         <input
@@ -128,7 +129,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="updateWeekday">
+        <label className="ShowNewForm__label" htmlFor="updateWeekday">
           UpdateWeekday:
         </label>
         <input
@@ -140,7 +141,7 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <label className="ShowNewForm__label" for="description">
+        <label className="ShowNewForm__label" htmlFor="description">
           Description:
         </label>
         <textarea

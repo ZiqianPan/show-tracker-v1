@@ -1,15 +1,23 @@
+// DEPENDENCIES
+const cors = require("cors");
+const express = require("express");
 
-const express = require('express');
-const cors = require('cors');
+// CONFIGURATION
 const app = express();
+
+// MIDDLEWARE
 app.use(cors());
+app.use(express.json());
 
 const showsController = require("./controllers/showsController");
-app.use("/shows", showsController);
 
 app.get('/', (req, res) => {
   res.status(200).json({ data: 'Service is running' });
 });
+
+
+app.use("/shows", showsController);
+
 
 
 module.exports = app;

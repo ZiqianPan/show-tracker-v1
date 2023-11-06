@@ -3,13 +3,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ShowEditForm.css";
 
-const API = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function ShowEditForm() {
   const navigate = useNavigate();
   let { id } = useParams();
   const [show, setShow] = useState({
-    name: "",
+    title: "",
     alternativeNames: "",
     url: "",
     season: "",
@@ -22,7 +22,7 @@ export default function ShowEditForm() {
 
   const updateShow = (updatedShow) => {
     axios
-      .put(`${API}/shows/${id}`, updatedShow)
+      .put(`${API_URL}/shows/${id}`, updatedShow)
       .then(
         () => {
           navigate(`/shows`);
@@ -39,9 +39,9 @@ export default function ShowEditForm() {
   // depends on how I set up the backend - this might change. 
   useEffect(() => {
     axios
-      .get(`${API}/shows/${id}`)
+      .get(`${API_URL}/shows/${id}`)
       .then((response) => {
-        setShow(response.data.payload);
+        setShow(response.data.data);
       })
       .catch((err) => {
         console.warn(err);
@@ -58,20 +58,20 @@ export default function ShowEditForm() {
 
   return <div className="ShowEditForm">
     <form onSubmit={handleSubmit}>
-        <label className="ShowEditForm__label ShowEditForm__required" for="name">
-          Name:
+        <label className="ShowEditForm__label ShowEditForm__required" htmlFor="name">
+        title:
         </label>
         <input
-          id="name"
+          id="title"
           type="text"
-          placeholder="Show Name *"
-          value={show.name}
+          placeholder="Show title *"
+          value={show.title}
           onChange={handleTextChange}
           required
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="alternativeNames">
+        <label className="ShowEditForm__label" htmlFor="alternativeNames">
           Alternative Names:
         </label>
         <input
@@ -83,7 +83,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="url">
+        <label className="ShowEditForm__label" htmlFor="url">
           Link to the show:
         </label>
         <input
@@ -95,7 +95,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="season">
+        <label className="ShowEditForm__label" htmlFor="season">
           Season:
         </label>
         <input
@@ -107,7 +107,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="episode">
+        <label className="ShowEditForm__label" htmlFor="episode">
           Episode:
         </label>
         <input
@@ -119,7 +119,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="volume">
+        <label className="ShowEditForm__label" htmlFor="volume">
           Volume:
         </label>
         <input
@@ -131,7 +131,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="timeStamp">
+        <label className="ShowEditForm__label" htmlFor="timeStamp">
           TimeStamp:
         </label>
         <input
@@ -143,7 +143,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="updateWeekday">
+        <label className="ShowEditForm__label" htmlFor="updateWeekday">
           UpdateWeekday:
         </label>
         <input
@@ -155,7 +155,7 @@ export default function ShowEditForm() {
           className="ShowEditForm__input"
         />
 
-        <label className="ShowEditForm__label" for="description">
+        <label className="ShowEditForm__label" htmlFor="description">
           Description:
         </label>
         <textarea

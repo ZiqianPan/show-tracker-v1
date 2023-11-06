@@ -1,13 +1,12 @@
 const express = require("express");
+const showsController = express.Router();
 const {
   getAllShows,
   getShowById,
   createNewShow,
-  // deleteShow,
-  // updateShow,
+  deleteShow,
+  updateShow,
 } = require("../queries/showsQueries.js");
-
-const showsController = express.Router();
 
 showsController.get("/", async (req, res) => {
   try {
@@ -39,45 +38,51 @@ showsController.get("/:id", async (req, res) => {
 // creating shows.
 showsController.post("/", async (req, res) => {
   const { body } = req;
-
   try {
     const show = await createNewShow(body);
+
     if (show.id) {
-      res.json({ success: true, payload: show });
+      res.json({ data: show });
     } else {
-      res.status(404).json({ success: false, payload: "not found" });
+      res.status(404).json({ data: "not found" });
     }
   } catch (err) {
-    console.log(err);
+    res.status(400).json({ error: err.message });
   }
 });
 
-// //delete function
-// showsController.delete("/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const deletedshow = await deleteshow(id);
-//   if (deletedshow.id) {
-//     res.status(200).json({ success: true, payload: deletedshow });
-//   } else {
-//     res.status(404).json({ success: false, payload: deletedshow });
-//   }
-// });
+//delete function
+showsController.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedShow = await deleteShow(id);
+    if (deletedShow.id) {
+      res.status(200).json({ data: deletedShow });
+    } else {
+      res.status(404).json({ error: "not found" });
+    }
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
-// //update current show
-// showsController.put("/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const { body } = req;
+//update current show
+showsController.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
+  try {
+    const updatedShow = await updateShow(body, id);
 
-//   body.is_healthy = confirmHealth(body);
-//   const updatedshow = await updateshow(req.body, id);
-
-//   if (updatedshow.id) {
-//     res.status(200).json(updatedshow);
-//   } else {
-//     res
-//       .status(404)
-//       .json({ error: "show could not be updated for some reason...." });
-// }
-// });
+    if (updatedShow.id) {
+      res.status(200).json({ data: updatedShow });
+    } else {
+      res
+        .status(404)
+        .json({ error: "show could not be updated for some reason...." });
+    }
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
 module.exports = showsController;

@@ -2,29 +2,28 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function ShowDetails() {
   const [show, setShow] = useState([]);
   let { id } = useParams();
   const navigate = useNavigate();
 
-// disable for navigation since we dont have backend set up yet.
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API}/shows/${id}`)
-  //     .then((response) => {
-  //       setShow(response.data.payload);
-  //     })
-  //     .catch(() => {
-  //       navigate("/not found");
-  //     });
-  // }, [id, navigate]);
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/shows/${id}`)
+      .then((response) => {
+        setShow(response.data.data);
+      })
+      .catch(() => {
+        navigate("/not found");
+      });
+  }, [id, navigate]);
 
   const handleDelete = () => {
     axios
-      .delete(`${API}/shows/${id}`)
+      .delete(`${API_URL}/shows/${id}`)
       .then(() => {
         navigate("/shows");
       })
@@ -35,6 +34,20 @@ export default function ShowDetails() {
 
 
   return (
-    <div>ShowDetails - single page with all the details of the show with the given id</div>
+    <div className="ShowDetails">
+      <h1>{show.title}</h1>
+
+      <div>
+          <Link to={`/shows/${show.id}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
+
+        <div>
+          <button onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+    </div>
   )
 }

@@ -2,7 +2,7 @@
   "shows": [
     {
       "id" : "1",
-      "name": "The Iceblade Sorcerer Shall Rule the World",
+      "title": "The Iceblade Sorcerer Shall Rule the World",
       "alternativeNames": "",
       "url": "https://www.youtube.com/watch?v=gavrsliKUIs",
       "season": "",
@@ -14,7 +14,7 @@
     },
     {
       "id" : "2",
-      "name": "Ori of the Dragon Chain",
+      "title": "Ori of the Dragon Chain",
       "alternativeNames": "",
       "url": "",
       "season": "",
@@ -26,7 +26,7 @@
     },
     {
       "id" : "3",
-      "name": "The one and only sword",
+      "title": "The one and only sword",
       "alternativeNames": "",
       "url": "",
       "season": "",

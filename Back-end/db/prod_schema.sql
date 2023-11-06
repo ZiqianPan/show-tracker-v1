@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS show_tracker_local;
-CREATE DATABASE show_tracker_local;
-\c show_tracker_local; 
-
+-- DROP DATABASE IF EXISTS show_tracker;
 DROP TABLE IF EXISTS shows;
+-- \c show_tracker; 
 
 CREATE TABLE shows (
     id SERIAL PRIMARY KEY, 

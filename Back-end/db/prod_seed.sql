@@ -1,4 +1,5 @@
-INSERT INTO shows (name, 
+-- \c show_tracker_local
+INSERT INTO shows (title, 
     alternativeNames,
     url,
     season,
