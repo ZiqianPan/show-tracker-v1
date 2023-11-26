@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-export default function ShowCard({ show }) {
+export default function ShowCard({ show, position }) {
   const navigate = useNavigate();
 
   const handleDelete = () => {
@@ -21,9 +21,9 @@ export default function ShowCard({ show }) {
 
   return (
     <div className="ShowCard">
-      <h2>
-        {show.id} - {show.title}
-      </h2>
+  
+      <h1>id:{show.id}</h1>
+      <p>title:{show.title}</p>
       <div>
           <Link to={`/shows/${show.id}/edit`}>
             <button>Edit</button>
