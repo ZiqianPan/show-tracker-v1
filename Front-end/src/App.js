@@ -4,10 +4,11 @@ import NavBar from "./components/NavBar/NavBar.js";
 //Pages
 import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home.js";
 import Index from "./pages/Index";
 import New from "./pages/New";
 import Show from "./pages/Show";
+import Footer from "./components/Footer/Footer.js"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="*" element={<FourOFour />} />
           </Routes>
         </main>
+        <Footer/>
       </Router>
     </div>
   );
