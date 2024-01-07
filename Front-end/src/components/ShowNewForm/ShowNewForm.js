@@ -45,7 +45,7 @@ export default function ShowNewForm() {
     <div className="ShowNewForm">
       <form onSubmit={handleSubmit}>
         <label className="ShowNewForm__required ShowNewForm__label" htmlFor="name"> 
-        Title:<span class="req">*</span>
+        Title:
         </label>
         <input
           id="title"
