@@ -6,7 +6,7 @@ import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour";
 import Home from "./pages/Home/Home.js";
 import Index from "./pages/Index";
-import New from "./pages/New";
+import New from "./pages/New/New.js";
 import Show from "./pages/Show";
 import Footer from "./components/Footer/Footer.js"
 

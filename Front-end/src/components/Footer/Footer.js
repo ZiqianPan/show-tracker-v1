@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <a herf="#" className="footer__logo">
-        Ziqian Pan
+        Show Tracker
       </a>
 
       <ul className="permalinks">

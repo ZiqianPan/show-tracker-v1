@@ -1,19 +1,74 @@
 form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(10, 1fr);
+  /* width:50%; */
+  /* padding-left: 25%;  */
+  /* padding-right: 25%; */
+  justify-content: center;
+  /* gap: 5px; */
+  margin: 1.3em;
+  /* border-radius:25px; */
+  /* border: 1px solid var(--dark-grey); */
 }
 
 input {
-  height: 1.5rem;
+  height: 2.2em;
 }
 
 .ShowNewForm__input {
-  border: 1px solid rgb(118, 118, 118);
+  /* border: 1px solid rgb(118, 118, 118); */
+  display: grid;
+  grid-column: 5/8;
   border-radius: 5px;
+  padding: 8px;
+  margin:2px;
 }
 
-.ShowNewForm__required::after {
-  content: " *";
+span {
+  display: block;
+  color:red;
+}
+
+/* require.... */
+/* .ShowNewForm__required::after {
   color: red;
+  content: ' *';
+  display:inline;
+} */
+
+.ShowNewForm__label {
+  display: grid;
+  grid-column: 2/5;
+  font-size: 20px;
+  text-align: right;
+  padding:5px;
+}
+
+
+.ShowNewForm__buttons {
+  display: grid;
+  grid-row:10/11;
+  grid-column: 5/7;
+  /* grid-template-columns: repeat(2, 1fr);  */
+}
+
+.Button {
+  display: grid;
+  /* grid-column: 5/7; */
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.Button__cancel {
+  color:white;
+  grid-column: 5/6;
+  background:var(--dark-grey)
+}
+
+.Button__submit {
+  color:white;
+  grid-column: 6/8;
+  background:var(--dark-grey)
 }

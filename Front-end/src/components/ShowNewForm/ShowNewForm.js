@@ -44,8 +44,8 @@ export default function ShowNewForm() {
   return (
     <div className="ShowNewForm">
       <form onSubmit={handleSubmit}>
-        <label className="ShowNewForm__label ShowNewForm__required" htmlFor="name">
-        title:
+        <label className="ShowNewForm__required ShowNewForm__label" htmlFor="name"> 
+        Title:
         </label>
         <input
           id="title"
@@ -153,7 +153,10 @@ export default function ShowNewForm() {
           className="ShowNewForm__input"
         />
 
-        <input className="button" type="submit" />
+        {/* <div className="ShowNewForm__buttons"> */}
+          <button className="Button Button__cancel" type="button">Cancel</button>
+          <button className="Button Button__submit" type="submit">Submit</button>
+        {/* </div> */}
       </form>
     </div>
   );
